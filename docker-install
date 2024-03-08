@@ -1,0 +1,118 @@
+#!/bin/bash
+#############################
+#     * Bash by Jersh *     #
+#############################
+
+
+# Functions for type of OS.
+
+install_docker_debian() { # If Dedbian Like Distros are detected this will run. 
+    echo "Installing Docker..."
+  # Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/debian/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/debian \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+sudo systemctl start docker
+sudo systemctl enable docker
+  }
+install_docker_ubuntu() {
+  echo "Installing Docker..."
+  # Add Docker's official GPG key:
+sudo apt-get update
+sudo apt-get install ca-certificates curl
+sudo install -m 0755 -d /etc/apt/keyrings
+sudo curl -fsSL https://download.docker.com/linux/ubuntu/gpg -o /etc/apt/keyrings/docker.asc
+sudo chmod a+r /etc/apt/keyrings/docker.asc
+
+# Add the repository to Apt sources:
+echo \
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.asc] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+}
+
+install_docker_rhel_like()) { # IF RHEL like distros are detected this will run.
+echo "Installing Docker..."
+sudo dnf --refresh update
+sudo dnf upgrade
+sudo dnf install yum-utils
+sudo yum-config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
+sudo dnf install docker-ce docker-ce-cli containerd.io docker-compose-plugin
+sudo systemctl start docker
+sudo systemctl enable docker
+}
+  
+# Detect the Linux distribution
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$NAME
+elif type lsb_release >/dev/null 2>&1; then
+    OS=$(lsb_release -si)
+else
+    OS=$(uname -s)
+fi
+
+case "$OS" in
+    "Ubuntu")
+        install_docker_debian || echo "Error installing Docker on $OS"
+        ;;
+    "Debian GNU/Linux")
+        install_docker_ubuntu || echo "Error installing Docker on $OS"
+        ;;
+    "Red Hat Enterprise Linux")
+        install_docker_rhel_like || echo "Error installing Docker on $OS"
+        ;;
+    "Fedora")
+        install_docker_rhel_like || echo "Error installing Docker on $OS"
+        ;;
+    "Rocky Linux")
+        install_docker_rhel_like || echo "Error installing Docker on $OS"
+        ;;
+    "AlmaLinux")
+        install_docker_rhel_like || echo "Error installing Docker on $OS"
+        ;;
+
+    *)
+        echo "Unsupported distribution: $OS"
+        exit 1
+        ;;
+esac
+
+# Check if Docker Installed Correctly
+if [ $? -eq 0 ]; then
+    echo "Docker has been installed successfully."
+else
+    echo "Installation of Docker failed. Please check the error messages above."
+fi
+
+#!/bin/bash
+
+# Prompt the user for verification
+read -p "Do you want to install Portainer? (yes/no): " verification
+
+if [[ $verification == "yes" ]]; then
+    # Create Docker volume for Portainer data
+    docker volume create portainer_data
+
+    # Run Portainer container
+    docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always \
+    -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data \
+    portainer/portainer-ce:latest
+
+    echo "Portainer has been installed and is now running."
+else
+    echo "Portainer will not be installed."
+fi
+
+
