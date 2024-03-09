@@ -3,6 +3,9 @@
 #     * Bash by Jersh *     #
 #############################
 
+# Get the IP address of the host machine
+host_ip=$(hostname -I | cut -d' ' -f1)
+
 # Functions for type of OS.
 
 install_docker_debian() {
@@ -75,20 +78,21 @@ fi
 echo "Docker has been installed successfully."
 
 # Prompt the user for Portainer installation
-read -p "Do you want to install Portainer? (yes/no): " verification
+read -p "Do you want to install Portainer? (Y/N): " verification
 
-if [[ $verification == "yes" ]]; then
+if [[ $verification == "Y" ]]; then
     # Check if Docker is running
     if sudo systemctl is-active --quiet docker; then
         # Create Docker volume for Portainer data
-        docker volume create portainer_data
+        sudo docker volume create portainer_data
 
         # Run Portainer container
-        docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always \
+        sudo docker run -d -p 8000:8000 -p 9443:9443 --name portainer --restart=always \
         -v /var/run/docker.sock:/var/run/docker.sock -v portainer_data:/data \
         portainer/portainer-ce:latest
 
-        echo "Portainer has been installed and is now running."
+        # Display the message with the IP address and port
+        echo "Portainer has been installed and is now running at https://${host_ip}:9443"
     else
         echo "Docker is not running. Portainer installation aborted."
     fi
