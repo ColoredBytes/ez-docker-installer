@@ -1,4 +1,4 @@
-# Easy Docker Installer
+# Ez Docker Installer
 
 ### **Why you ask?**
 
@@ -6,11 +6,18 @@ Glad you Asked! I use docker for alot of my Homelab and currently run it on Rock
 
 
 ### **Insttructions**
-Clone the repo.
->git clone 
->
+**Clone the repo.**
+> git clone https://github.com/Derp0ps/Ez-Docker-Installer.git
+
+**Make the script executable.**
+> cd Ez-Docker-Installer && chmod +x ez-docker-installer.sh
+
+**Run the script.**
+> ./ez-docker-installer.sh
 
 
-
-
-
+## Things to Know.
+- No need to run as sudo as that is handled in the script. 
+- You still need to add other users if you want them to run docker commands that can be done with a `sudo usermod -aG docker $USER`<br>
+- This was tested on Debian 12, Ubuntu 22.04, Rocky Linux 9.3 and Alma Linux 9.3 and RHEL 9.3.
+    - With that said it may work on earlier releases your mielage may vary. 
