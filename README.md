@@ -5,21 +5,21 @@
 Glad you Asked! I use docker for a lot of my Homelab and currently run it on Rocky Linux. Which works great BTW! The issue I had was that Dockers install script located [Here](https://get.docker.com/) currently does not have support for RHEL-like systesms minus [Fedora](https://docs.docker.com/engine/install/fedora/) and [RHEL](https://docs.docker.com/engine/install/rhel/) for s390x architecture. So I made this to make it easier on myself and perhaps others so we don't need to manually install all the time. 
 
 
-### **Insttructions**
+### **Instructions**
 > **Clone the repo.**
-```
-git clone https://github.com/Derp0ps/Ez-Docker-Installer.git
-```
+> ```
+> git clone https://github.com/Derp0ps/Ez-Docker-Installer.git
+> ```
 
 > **Make the script executable.**
-```
-cd Ez-Docker-Installer && chmod +x ez-docker-installer.sh
-```
+> ```
+> cd Ez-Docker-Installer && chmod +x ez-docker-installer.sh
+> ```
 
 > **Run the script.**
-```
-./ez-docker-installer.sh
-```
+> ```
+> ./ez-docker-installer.sh
+> ```
 
 **Navigate to Portainer if installed.**
 - If you choose to Install Portainer a link will spit out at the end like this `Portainer has been installed and is now running at https://127.0.0.1:9443`
