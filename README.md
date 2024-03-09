@@ -6,17 +6,17 @@ Glad you Asked! I use docker for a lot of my Homelab and currently run it on Roc
 
 
 ### **Insttructions**
-**Clone the repo.**
+> **Clone the repo.**
 ```
 git clone https://github.com/Derp0ps/Ez-Docker-Installer.git
 ```
 
-**Make the script executable.**
+> **Make the script executable.**
 ```
 cd Ez-Docker-Installer && chmod +x ez-docker-installer.sh
 ```
 
-**Run the script.**
+> **Run the script.**
 ```
 ./ez-docker-installer.sh
 ```
