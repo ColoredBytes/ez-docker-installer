@@ -78,9 +78,9 @@ fi
 echo "Docker has been installed successfully."
 
 # Prompt the user for Portainer installation
-read -p "Do you want to install Portainer? (Y/N): " verification
+read -p "Do you want to install Portainer? (yes/no): " verification
 
-if [[ $verification == "Y" ]]; then
+if [[ $verification =~ ^[Yy][Ee][Ss]$ ]]; then
     # Check if Docker is running
     if sudo systemctl is-active --quiet docker; then
         # Create Docker volume for Portainer data
