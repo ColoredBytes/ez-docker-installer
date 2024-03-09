@@ -8,7 +8,7 @@ Glad you Asked! I use docker for alot of my Homelab and currently run it on Rock
 ### **Insttructions**
 **Clone the repo.**
 ```
-git clone https://github.com/Derp0ps/Ez-Docker-Installer.git`
+git clone https://github.com/Derp0ps/Ez-Docker-Installer.git
 ```
 
 **Make the script executable.**
