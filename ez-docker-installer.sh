@@ -1,4 +1,4 @@
-#!/bin/$shell
+#!/bin/bash
 # Author: Joshua Ross
 # Purpose: An Easy Docker Install Script!
 
