@@ -1,7 +1,7 @@
-#!/bin/bash
-#############################
-#     * Bash by Jersh *     #
-#############################
+#!/bin/$shell
+# Author: Joshua Ross
+# Purpose: An Easy Docker Install Script!
+
 
 # Get the IP address of the host machine
 host_ip=$(hostname -I | cut -d' ' -f1)
