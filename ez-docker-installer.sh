@@ -6,8 +6,7 @@
 # Get the IP address of the host machine
 host_ip=$(hostname -I | cut -d' ' -f1)
 
-# Functions for type of OS.
-
+# Functions debian install
 install_docker_debian() {
     echo "Installing Docker on Debian..."
     # Add Docker's official GPG key:
@@ -20,7 +19,7 @@ install_docker_debian() {
     sudo systemctl start docker
     sudo systemctl enable docker
 }
-
+# Functions ubuntu install 
 install_docker_ubuntu() {
     echo "Installing Docker on Ubuntu..."
     # Add Docker's official GPG key:
@@ -33,7 +32,7 @@ install_docker_ubuntu() {
     sudo systemctl start docker
     sudo systemctl enable docker
 }
-
+# function to install on RHEL Family Systsms.
 install_docker_rhel_like() {
     echo "Installing Docker on RHEL-like system..."
     sudo dnf -y install dnf-plugins-core
@@ -41,6 +40,23 @@ install_docker_rhel_like() {
     sudo dnf install -y docker-ce docker-ce-cli containerd.io
     sudo systemctl start docker
     sudo systemctl enable docker
+}
+#function to install docker for raspberry_pi
+install_docker_raspberry_pi() {
+    # Install Docker on Raspberry Pi OS
+    sudo apt update
+    sudo apt install -y docker.io
+    sudo usermod -aG docker $USER
+    echo "Docker installed successfully. Please log out and log back in for changes to take effect."
+}
+# raspberry_pi detection since its aarch64
+is_raspberry_pi() {
+    ARCH=$(uname -m)
+    if [ "$ARCH" == "armv7l" ] || [ "$ARCH" == "aarch64" ]; then
+        return 0
+    else
+        return 1
+    fi
 }
 
 # Detect the Linux distribution
