@@ -8,6 +8,7 @@ host_ip=$(hostname -I | cut -d' ' -f1)
 
 # Functions debian install
 install_docker_debian() {
+    if ! is_raspberry_pi; then
     echo "Installing Docker on Debian..."
     # Add Docker's official GPG key:
     sudo apt-get update
@@ -16,8 +17,12 @@ install_docker_debian() {
     sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/debian $(lsb_release -cs) stable"
     sudo apt-get update
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    sudo usermod -aG docker $USER
     sudo systemctl start docker
     sudo systemctl enable docker
+      else
+        echo "Raspberry Pi detected. Skipping Debian Docker installation."
+    fi
 }
 # Functions ubuntu install 
 install_docker_ubuntu() {
@@ -29,6 +34,7 @@ install_docker_ubuntu() {
     sudo add-apt-repository "deb [arch=$(dpkg --print-architecture)] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
     sudo apt-get update
     sudo apt-get install -y docker-ce docker-ce-cli containerd.io
+    sudo usermod -aG docker $USER
     sudo systemctl start docker
     sudo systemctl enable docker
 }
@@ -38,6 +44,7 @@ install_docker_rhel_like() {
     sudo dnf -y install dnf-plugins-core
     sudo dnf config-manager --add-repo https://download.docker.com/linux/centos/docker-ce.repo
     sudo dnf install -y docker-ce docker-ce-cli containerd.io
+    sudo usermod -aG docker $USER
     sudo systemctl start docker
     sudo systemctl enable docker
 }
