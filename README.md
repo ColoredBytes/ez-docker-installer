@@ -6,23 +6,24 @@ Glad you Asked! I use docker for a lot of my Homelab and currently run it on Roc
 
 
 ### **Instructions**
-> **Clone the repo.**
+- **Clone the repo.**
  ```
  git clone https://github.com/ross-jm/Ez-Docker-Installer.git
  ```
 
-> **Make the script executable.**
+- **Make the script executable.**
  ```
  cd Ez-Docker-Installer && chmod +x ez-docker-installer.sh
  ```
 
-> **Run the script.**
+- **Run the script.**
  ```
  ./ez-docker-installer.sh
  ```
 
 **Navigate to Portainer if installed.**
-- If you choose to Install Portainer a link will spit out at the end like this `Portainer has been installed and is now running at https://127.0.0.1:9443`
+- If you choose to Install Portainer a link will spit out at the end like this
+> Portainer has been installed and is now running at https://127.0.0.1:9443`
     - Click the link make an account and Docker Away!
 
 ## Things to Know.
