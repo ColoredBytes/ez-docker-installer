@@ -24,7 +24,8 @@ Glad you Asked! I use docker for a lot of my Homelab and currently run it on Roc
 **Navigate to Portainer if installed.**
 - If you choose to Install Portainer a link will spit out at the end like this
 > Portainer has been installed and is now running at https://127.0.0.1:9443
-    - Click the link make an account and Docker Away!
+
+ - Click the link make an account and Docker Away!
 
 ## Things to Know.
 - No need to run as sudo as that is handled in the script.
