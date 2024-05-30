@@ -8,7 +8,7 @@ Glad you Asked! I use docker for a lot of my Homelab and currently run it on Roc
 ### **Instructions**
 - **Clone the repo.**
  ```
- git clone https://github.com/ross-jm/Ez-Docker-Installer.git
+ git clone https://github.com/ColoredBytes/Ez-Docker-Installer.git
  ```
 
 - **Make the script executable.**
