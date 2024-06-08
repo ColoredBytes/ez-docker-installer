@@ -1,6 +1,7 @@
-#!/bin/$shell
+#!/usr/bin/env bash
 # Author: Joshua Ross
-# Purpose: An Easy Docker Install Script!
+# Github: https://github.com/ColoredBytes
+# Purpose: Docker Install Script
 
 
 # Get the IP address of the host machine
