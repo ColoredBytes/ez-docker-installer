@@ -33,12 +33,12 @@ chmod +x Ez-Docker-Installer/install.sh
 ```
 
 ## :memo: Notes
-
-- No need to run as sudo as that is handled in the script.
-    - Will prompt for Password if not run by root or the system is not configured for passwordless sudo.
-- You still need to add other users if you want them to run docker commands that can be done with.
-    - `sudo usermod -aG docker $USER`<br>
-- This script installs the CE Edition of both not Business. That needs to be upgraded manually.
+> [!NOTE]
+> - No need to run as sudo as that is handled in the script.
+>    - Will prompt for Password if not run by root or the system is not configured for passwordless sudo.
+> - You still need to add other users if you want them to run docker commands that can be done with.
+>    - `sudo usermod -aG docker $USER`<br>
+> - This script installs the CE Edition of both not Business. That needs to be upgraded manually.
 
 
 ## :balance_scale: **LICENSE**
