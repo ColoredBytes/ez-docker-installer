@@ -27,13 +27,10 @@ So I made this to make it easier on myself and perhaps others so we don't need t
 ```bash
 git clone https://github.com/ColoredBytes/Ez-Docker-Installer.git
 ```
-- **Make the script executable.**
-```bash
-chmod +x Ez-Docker-Installer/install.sh
-```
 - **Run the script.**
+ 
  ```bash
- bash Ez-Docker-Installer/install.sh
+./Ez-Docker-Installer/install.sh
 ```
 
 ## :memo: Notes
