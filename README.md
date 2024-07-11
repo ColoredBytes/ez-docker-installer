@@ -24,13 +24,14 @@ So I made this to make it easier on myself and perhaps others so we don't need t
 ## :gear: Instructions
 
 - **Clone Repo.**
+
 ```bash
-git clone https://github.com/ColoredBytes/Ez-Docker-Installer.git
+git clone https://github.com/ColoredBytes/ez-docker-installer.git
 ```
 - **Run the script.**
  
  ```bash
-./Ez-Docker-Installer/install.sh
+./ez-docker-installer/install.sh
 ```
 
 ## :memo: Notes
