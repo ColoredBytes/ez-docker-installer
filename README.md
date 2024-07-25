@@ -26,7 +26,7 @@ So I made this to make it easier on myself and perhaps others so we don't need t
 - **Clone Repo.**
 
 ```bash
-git clone https://github.com/ColoredBytes/ez-docker-installer.git
+git clone https://github.com/JershOps/ez-docker-installer.git
 ```
 - **Run the script.**
  
